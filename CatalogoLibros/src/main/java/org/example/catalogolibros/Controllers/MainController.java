@@ -29,6 +29,9 @@ public class MainController {
 
     private LibroServicio servicio;
 
+    /**
+     * Metodo para inizializar la view del programa.
+     */
     @FXML
     public void initialize() {
         servicio = new LibroServicio();
@@ -43,11 +46,17 @@ public class MainController {
         cargarTabla();
     }
 
+    /**
+     * Metodo para acceder al formulario y agregar un libro al catalogo
+     */
     @FXML
     private void onNuevo() {
         abrirFormulario(null);
     }
 
+    /**
+     * Metodo para editar un libro seleccionado al presionar un boton.
+     */
     @FXML
     private void onEditar() {
         Libro seleccionado = tablaLibros.getSelectionModel().getSelectedItem();
@@ -58,6 +67,9 @@ public class MainController {
         abrirFormulario(seleccionado);
     }
 
+    /**
+     * Metodo para eliminar un libro del catalogo mostrando un pop up de alerta de confirmacion al eliminar.
+     */
     @FXML
     private void onEliminar() {
         Libro seleccionado = tablaLibros.getSelectionModel().getSelectedItem();
@@ -80,6 +92,9 @@ public class MainController {
         });
     }
 
+    /**
+     *Metodo para cambiar de scene a la view de detalles de un libro seleccionado al presionar el boton.
+     */
     @FXML
     private void onVerDetalle() {
         Libro seleccionado = tablaLibros.getSelectionModel().getSelectedItem();
@@ -104,6 +119,9 @@ public class MainController {
         }
     }
 
+    /**
+     * Metodo para exportar los datos del catalogo al accionar el boton
+     */
     @FXML
     private void onExportar() {
         boolean exito = servicio.exportarReporte();
@@ -114,6 +132,10 @@ public class MainController {
         }
     }
 
+    /**
+     * Metodo para cambiar de scene y acceder al formulario de creacion de libro.
+     * @param libroEditar -> Libro a agregar al registro
+     */
     private void abrirFormulario(Libro libroEditar) {
         try {
             FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("views/form-view.fxml"));
@@ -136,6 +158,9 @@ public class MainController {
         }
     }
 
+    /**
+     * Metodo para actualizar la vista de la tabla
+     */
     private void cargarTabla() {
         ObservableList<Libro> lista = FXCollections.observableArrayList(servicio.obtenerTodos());
         tablaLibros.setItems(lista);

@@ -22,10 +22,18 @@ public class FormController {
     private LibroServicio servicio;
     private Libro libroEditar;
 
+    /**
+     * Setter de servicio para este controller
+     * @param servicio
+     */
     public void setServicio(LibroServicio servicio) {
         this.servicio = servicio;
     }
 
+    /**
+     * Metodo para mostrar los detalles de un libro en el formulario
+     * @param l -> default view del libro a editar
+     */
     public void setLibroEditar(Libro l) {
         this.libroEditar = l;
         txtId.setText(l.getIdLibro());
@@ -37,6 +45,9 @@ public class FormController {
         chkDisponible.setSelected(l.isDisponible());
     }
 
+    /**
+     * Metodo para guardar un libro en el catalogo al presionar un boton
+     */
     @FXML
     private void onGuardar() {
         lblError.setText("");
@@ -66,11 +77,17 @@ public class FormController {
         }
     }
 
+    /**
+     * Metodo para cerrar una scene al presionar un boton.
+     */
     @FXML
     private void onCancelar() {
         cerrar();
     }
 
+    /**
+     * Metodo para terminar una scene y regresar al main stage
+     */
     private void cerrar() {
         ((Stage) txtId.getScene().getWindow()).close();
     }

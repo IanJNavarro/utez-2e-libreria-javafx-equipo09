@@ -14,6 +14,10 @@ public class DetailController {
     @FXML private Label lblGenero;
     @FXML private Label lblDisponible;
 
+    /**
+     * Metodo para mostrar los atributos de un Libro en una scene.
+     * @param l -> Libro a mostrar
+     */
     public void setLibro(Libro l) {
         lblId.setText(l.getIdLibro());
         lblTitulo.setText(l.getTitulo());
@@ -23,6 +27,9 @@ public class DetailController {
         lblDisponible.setText(l.isDisponible() ? "Sí" : "No");
     }
 
+    /**
+     * Metodo para cerrar la scene y regresar a la main view
+     */
     @FXML
     private void onRegresar() {
         ((Stage) lblId.getScene().getWindow()).close();
