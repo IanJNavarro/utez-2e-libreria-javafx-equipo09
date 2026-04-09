@@ -1,26 +1,37 @@
 package org.example.catalogolibros.Services;
 
-
-
 import org.example.catalogolibros.Modelo.Libro;
 import org.example.catalogolibros.Repositorio.LibroRepositorio;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/**
+ * Aquí se aplica la lógica de negocio y las validaciones antes de guardar nada.
+ */
 public class LibroServicio {
 
+    /** Enlace directo con el repositorio para el manejo de datos */
     public LibroRepositorio repositorio;
 
+    /**
+     * Inicializa el servicio conectándolo con su repo correspondiente
+     */
     public LibroServicio() {
         repositorio = new LibroRepositorio();
     }
 
+    /**
+     * Devuelve la lista completa de libros registrados
+     * @return ArrayList con todos los libros en memoria
+     */
     public ArrayList<Libro> obtenerTodos() {
         return repositorio.listaLibros;
     }
 
-    // Crud
-
+    /**
+     * Procesa la creación de un nuevo libro. Valida los datos
+     * @throws Exception Si algún campo falla las reglas de validación o el ID ya existe
+     */
     public void agregar(String id_libro, String titulo, String autor,
                         String fechaTexto, String genero, boolean disponible) throws Exception {
 
@@ -35,6 +46,10 @@ public class LibroServicio {
         repositorio.agregar(nuevo);
     }
 
+    /**
+     * Gestiona la actualización de un libro existente tras validar los nuevos datos
+     * @throws Exception Si los datos editados no cumplen con las reglas establecida
+     */
     public void actualizar(String id_libro, String titulo, String autor,
                            String fechaTexto, String genero, boolean disponible) throws Exception {
 
@@ -45,16 +60,29 @@ public class LibroServicio {
         repositorio.actualizar(editado);
     }
 
+    /**
+     * Solicita al repositorio la eliminación de un libro específico
+     * @param libro El objeto libro que se desea borrar
+     */
     public void eliminar(Libro libro) {
         repositorio.eliminar(libro);
     }
 
+    /**
+     * Llama a la función de exportación del repositorio para generar el archivo de reporte
+     * @return true si el archivo se creó correctamente
+     */
     public boolean exportarReporte() {
         return repositorio.exportarReporte();
     }
 
     // Validaciones
 
+    /**
+     * Revisa que todos los datos del libro cumplan con lo solicitado
+     * campos no vacíos, longitud de texto coherente y fechas dentro de un rango lógico.
+     * @throws Exception Con un mensaje del error encontrado.
+     */
     private void validarCampos(String id_libro, String titulo, String autor,
                                String fechaTexto, String genero) throws Exception {
 
