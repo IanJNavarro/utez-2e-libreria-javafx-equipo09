@@ -19,7 +19,7 @@ public class Libro {
     /** Año en el que fue publicado el libro */
     public int fechaDePublicacion;
 
-    /** Categoría o género literario (ej. Novela, Terror, Ciencia Ficción) */
+    /** Categoria o genero (ej. Novela, Terror, Ciencia Ficción) */
     public String genero;
 
     /** Estado actual del libro: true si se puede prestar, false si no */
