@@ -1,4 +1,4 @@
-# Cataologo de Libros - Proyecto Integrador - Javier Diaz Gonzalez - Ian Josue Navarro Arce
+# Cataologo de Libros - Proyecto Integrador - Javier Adael Diaz Gonzalez - Ian Josue Navarro Arce
 
 Repositorio para la creacion del proyecto integrador de la clase programacion estructurada.
 
