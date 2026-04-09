@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
- * Aquí se aplica la lógica de negocio y las validaciones antes de guardar nada.
+ * Aquí se aplica la lógica de negocio y las validaciones
  */
 public class LibroServicio {
 
